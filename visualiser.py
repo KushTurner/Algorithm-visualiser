@@ -1,4 +1,3 @@
-from netrc import netrc
 import pygame,sys,random
 
 #    pygame.draw.rect(screen, BLACK, (0, 400, 100, 100))
