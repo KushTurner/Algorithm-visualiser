@@ -9,6 +9,7 @@ import pygame,sys,random
 
 pygame.init()
 
+FPS = 15
 WIDTH, HEIGHT = 900, 500
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -24,7 +25,7 @@ def makelst(num):
     random.shuffle(lst)
     return lst
 
-x = makelst(200)
+x = makelst(100)
 
 def scr(lst):
     for idx, val in enumerate(lst):
@@ -38,22 +39,21 @@ def scr(lst):
 def sort():
         for i in range(len(x)):
             cur_min_idx = i
-            h1 = x[cur_min_idx] * 5
-            pygame.draw.rect(screen, GREEN, (i*5, 500-h1, 5, h1))
-            pygame.display.update()
             for j in range(i+1, len(x)):
                 if x[j] < x[cur_min_idx]:
-                    h2 = x[j] * 5
-                    pygame.draw.rect(screen, RED, (j*5, 500-h2, 5, h2))
-                    pygame.display.update()
                     cur_min_idx = j
-                    h2 = x[cur_min_idx] * 5
-                    pygame.draw.rect(screen, BLUE, (j*5, 500-h2, 5, h2))
-                    pygame.display.update()
+            h2 = x[cur_min_idx] * 5
+            rec = pygame.draw.rect(screen, BLUE, (cur_min_idx*5, 500-h2, 5, h2))
+            pygame.display.update(rec)
+            rec = pygame.draw.rect(screen, WHITE, (cur_min_idx*5, 500-h2, 5, h2))
+            pygame.display.update(rec)
+            h1 = x[i] * 5
+            rec = pygame.draw.rect(screen, GREEN, (i*5, 500-h1, 5, h1))
+            pygame.display.update(rec)
+            rec = pygame.draw.rect(screen, WHITE, (i*5, 500-h1, 5, h1))
+            pygame.display.update(rec)
             x[i], x[cur_min_idx] = x[cur_min_idx], x[i]
             yield x
-
-FPS = 60
 
 a = sort()
 
