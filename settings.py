@@ -1,4 +1,6 @@
 import pygame
+import algorithms.algs as algs
+from list import arr
 
 WIDTH, HEIGHT = 900, 500
 WHITE = (255, 255, 255)
@@ -9,3 +11,4 @@ BLUE = (0, 0, 255)
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Visualiser")
+

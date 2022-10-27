@@ -6,14 +6,15 @@ from list import arr
 
 # change sort variable to "bubble" or "selection"
 
-sort = "selection"
+sort = "bubble"
 
 if sort.lower() == "bubble sort" or sort.lower() == "bubble":
-    alg = algs.bubble(arr)
     FPS=60
+    alg = algs.bubble(arr)
 elif sort.lower() == "selection sort" or sort.lower() == "selection":
-    alg = algs.selection(arr)
     FPS = 15
+    alg = algs.selection(arr)
+    
 
 pygame.init()
 
